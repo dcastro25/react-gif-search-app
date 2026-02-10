@@ -4,7 +4,7 @@ import {CustomSearches} from '../shared/CustomSearches';
 import {PreviousSearches} from '../gifs/PreviousSearches'
 import { GifsList } from '../gifs/GifsList';
 import { useState } from 'react';
-// import { useState } from 'react';
+
 
 export function GifsApp(){
     const [previousTerm, setPreviousTerm] = useState(["dragon ball z"]);

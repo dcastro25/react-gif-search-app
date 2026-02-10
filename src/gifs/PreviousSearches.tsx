@@ -1,8 +1,7 @@
 
 interface Props{
     searches: string[];
-
-        onLabelClicked: (Term:string)=>void;
+    onLabelClicked: (Term:string)=>void;
 }
 
 export function PreviousSearches({searches, onLabelClicked} : Props){
