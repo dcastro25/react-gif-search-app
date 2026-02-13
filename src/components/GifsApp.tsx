@@ -11,13 +11,19 @@ export function GifsApp(){
 
     const handleTermClicked = (Term: string) =>{
         console.log(Term);
-    }
+    } 
 
     const handleSearch = (query: string)=>{
-        console.log({query});
 
+        let newQuery = query.trim().toLowerCase();
+
+        if(!newQuery) return;
+
+        let filterPreviousTerm = previousTerm.filter(item => (item !== newQuery));
+
+        setPreviousTerm([newQuery, ...filterPreviousTerm].slice(0,5));
     };
-
+    
     return(
 
         <div>
