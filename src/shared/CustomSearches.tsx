@@ -40,7 +40,7 @@ export function CustomSearches ({Placeholder, onQuery}:Props){
                 onChange = {(event) => setQuery(event.target.value)}/>
             <button
                 onClick={handleSearch}
-            > enviar esa kga</button>
+            > enviar</button>
         </div>
     )
 }
