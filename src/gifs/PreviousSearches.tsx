@@ -2,9 +2,14 @@
 interface Props{
     searches: string[];
     onLabelClicked: (Term:string)=>void;
+
+    
+
 }
 
 export function PreviousSearches({searches, onLabelClicked} : Props){
+
+    
     return(
         <div className="previous-searches">
             <h2>Busquedas previas</h2>

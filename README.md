@@ -2,6 +2,8 @@
 
 Una aplicación web moderna para buscar, descubrir y compartir GIFs. Construida con React, TypeScript y Vite para máximo rendimiento.
 
+Nota: Este repositorio es una aplicación de aprendizaje guiado — desarrollada como ejercicio educativo para practicar conceptos de React, TypeScript y Vite. No está pensada como un producto de producción.
+
 ## 📋 Características
 
 - 🔍 **Búsqueda de GIFs**: Interfaz intuitiva para buscar GIFs

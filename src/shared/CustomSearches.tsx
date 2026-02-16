@@ -31,8 +31,8 @@ export function CustomSearches ({Placeholder, onQuery}:Props){
     }
 
     return(
-        <div>
-            <h2> ni  idea que era este componente</h2>
+        <div className ="search-container">
+
             <input
                 value = {query}
                 placeholder={Placeholder} 
