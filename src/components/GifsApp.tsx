@@ -4,16 +4,17 @@ import {CustomSearches} from '../shared/CustomSearches';
 import {PreviousSearches} from '../gifs/PreviousSearches'
 import { GifsList } from '../gifs/GifsList';
 import { useState } from 'react';
+import { getGifsByQuery } from '../gifs/actions/get-gifs-by-query.actions';
 
 
 export function GifsApp(){
     const [previousTerm, setPreviousTerm] = useState(["dragon ball z"]);
 
-    const handleTermClicked = (Term: string) =>{
+    const handleTermClicked =  (Term: string) =>{
         console.log(Term);
     } 
 
-    const handleSearch = (query: string)=>{
+    const handleSearch = async(query: string)=>{
 
         let newQuery = query.trim().toLowerCase();
 
@@ -22,6 +23,9 @@ export function GifsApp(){
         let filterPreviousTerm = previousTerm.filter(item => (item !== newQuery));
 
         setPreviousTerm([newQuery, ...filterPreviousTerm].slice(0,5));
+
+        const data = await getGifsByQuery(query);
+        console.log({data});
     };
     
     return(
