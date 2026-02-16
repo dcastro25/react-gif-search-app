@@ -1,123 +1,134 @@
-# 🎬 GiftApp - Buscador de GIFs
+# 🎬 GIF App - React + TypeScript
 
-Una aplicación web moderna para buscar, descubrir y compartir GIFs. Construida con React, TypeScript y Vite para máximo rendimiento.
+Aplicación web desarrollada con **React, TypeScript y Vite** que permite buscar GIFs utilizando la API de Giphy.
+Este proyecto fue creado como práctica para reforzar conceptos de arquitectura en React, consumo de APIs y tipado fuerte con TypeScript.
 
-Nota: Este repositorio es una aplicación de aprendizaje guiado — desarrollada como ejercicio educativo para practicar conceptos de React, TypeScript y Vite. No está pensada como un producto de producción.
+---
 
-## 📋 Características
+## 🚀 Demo en vivo
 
-- 🔍 **Búsqueda de GIFs**: Interfaz intuitiva para buscar GIFs
-- 📚 **Historial de búsquedas**: Guarda tus búsquedas previas
-- 💾 **Datos simulados**: Incluye una galería de GIFs precargados
-- ⚡ **Rendimiento rápido**: Construido con Vite para HMR instantáneo
-- 🎨 **Interfaz responsive**: Diseño adaptable a cualquier dispositivo
-- 🛡️ **TypeScript**: Tipado fuerte para mayor seguridad
+🔗 https://react-gif-search-app-woa6.vercel.app
 
-## 🚀 Tecnologías
+---
 
-- **React 19** - Librería UI declarativa
-- **TypeScript** - Tipado estático para JavaScript
-- **Vite 7** - Build tool ultrarrápido
-- **ESLint** - Linter de código con reglas estrictas
-- **React DOM** - Rendering en el DOM
+## 🧠 Lo que demuestra este proyecto
 
-## 🎯 Estructura del Proyecto
+* Manejo de estado en React
+* Componentización
+* Separación de responsabilidades
+* Consumo de APIs externas
+* Uso de funciones asíncronas
+* Tipado de respuestas de API con TypeScript
+* Organización modular del código
+* Deploy en producción con Vercel
+
+---
+
+## 🏗️ Estructura del proyecto
 
 ```
 src/
-├── components/       # Componentes principales
-├── gifs/            # Componentes relacionados con GIFs
-├── shared/          # Componentes reutilizables
-├── mock-data/       # Datos simulados
-└── main.tsx         # Punto de entrada
+│
+├── components/
+│   └── GifsApp.tsx
+│
+├── gifs/
+│   ├── actions/
+│   │   └── get-gifs-by-query.ts
+│   │
+│   ├── api/
+│   │   └── giphy.api.ts
+│   │
+│   ├── interface/
+│   │   ├── gif.interface.ts
+│   │   └── giphy.response.ts
+│   │
+│   ├── components/
+│   │   ├── GifList.tsx
+│   │   └── PreviousSearches.tsx
+│   │
+│   └── mock-data/
+│       └── mocks-data.ts
+│
+├── shared/
+│   ├── CustomHeader.tsx
+│   └── CustomSearches.tsx
+│
+└── main.tsx
 ```
 
-## 📦 Instalación
+La estructura está organizada por dominio (`gifs/`) y responsabilidades (`actions`, `api`, `interface`, `components`), siguiendo una arquitectura escalable.
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+* React
+* TypeScript
+* Vite
+* Fetch API
+* CSS
+* Giphy API
+
+---
+
+## ⚙️ Instalación
+
+Clonar el repositorio:
 
 ```bash
-git clone <repository>
-cd gift-app
+git clone https://github.com/dcastro25/react-gif-search-app
+```
+
+Entrar en la carpeta:
+
+```bash
+cd react-gif-search-app
+```
+
+Instalar dependencias:
+
+```bash
 npm install
 ```
 
-## 🏃 Desarrollo
+Ejecutar en desarrollo:
 
 ```bash
 npm run dev
 ```
 
-Abre [http://localhost:5173](http://localhost:5173) en tu navegador.
+---
 
-## 🔨 Build para producción
+## 🌎 Variables de entorno
 
-```bash
-npm run build
+El proyecto usa un archivo `.env` para la API Key de Giphy.
+
+Ejemplo:
+
+```
+VITE_GIPHY_API_KEY=tu_api_key
 ```
 
-## 📝 Scripts disponibles
+El archivo `.env.template` está incluido como referencia.
 
-- `npm run dev` - Inicia el servidor de desarrollo
-- `npm run build` - Construye la aplicación para producción
-- `npm run lint` - Ejecuta ESLint
-- `npm run preview` - Previsualiza la build de producción
+---
 
-## 🛠️ Configuración ESLint avanzada
+## 📦 Deploy
 
-Para una aplicación en producción, se recomienda actualizar la configuración para incluir reglas con type-aware:
+La aplicación está desplegada en producción usando Vercel y se conecta automáticamente al repositorio de GitHub.
 
-```js
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 👨‍💻 Autor
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+Oscar Castro
+Frontend Developer en formación
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+GitHub: https://github.com/dcastro25
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+---
 
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs["recommended-typescript"],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+## 📌 Nota
+
+Este proyecto forma parte de mi proceso de aprendizaje y práctica en desarrollo Frontend moderno.
